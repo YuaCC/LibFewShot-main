@@ -1,4 +1,4 @@
-data_root: D:/E/dataset/miniImageNet--ravi
+data_root: /data/wzy/miniImageNet--ravi
 image_size: 84
 use_memory: False
 augment: True
