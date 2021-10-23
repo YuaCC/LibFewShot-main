@@ -9,3 +9,4 @@ from .metric_model import MetricModel
 from .proto_net import ProtoNet
 from .relation_net import RelationNet
 from .feat import FEAT
+from .ycc_proto_net import YccProtoNet

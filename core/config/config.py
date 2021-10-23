@@ -27,7 +27,7 @@ class Config(object):
     2. The merge priority is console_params > run_*.py dict > user defined yaml (/LibFewShot/config/*.yaml) > default.yaml (/LibFewShot/core/config/default.yaml)
     """
 
-    def __init__(self, config_file=None, variable_dict=None, is_resume=False):
+    def __init__(self, variable_dict=None, is_resume=False):
         """Initializing the parameter dictionary, actually completes the merging of all parameter definitions.
 
         Args:
@@ -36,10 +36,11 @@ class Config(object):
             is_resume: Specifies whether to resume, the default is False.
         """
         self.is_resume = is_resume
-        self.config_file = config_file
         self.console_dict = self._load_console_dict()
+        self.config_file = self.console_dict['config_file']
+
         self.default_dict = self._load_config_files(DEFAULT_FILE)
-        self.file_dict = self._load_config_files(config_file)
+        self.file_dict = self._load_config_files(self.config_file)
         self.variable_dict = self._load_variable_dict(variable_dict)
         self.config_dict = self._merge_config_dict()
 
@@ -112,6 +113,7 @@ class Config(object):
             dict: A dict of LibFewShot console setting.
         """
         parser = argparse.ArgumentParser()
+        parser.add_argument("--config_file", type=str, help="path of config file",required=True)
         parser.add_argument("-w", "--way_num", type=int, help="way num")
         parser.add_argument("-s", "--shot_num", type=int, help="shot num")
         parser.add_argument("-q", "--query_num", type=int, help="query num")

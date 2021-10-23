@@ -1,0 +1,52 @@
+includes:
+  - headers/data.yaml
+  - headers/device.yaml
+  - headers/misc.yaml
+  - headers/model.yaml
+  - headers/optimizer.yaml
+  - classifiers/YccProtoEuclideanMean.yaml
+  - backbones/resnet12.yaml
+
+
+device_ids: 0
+way_num: 5
+shot_num: 1
+query_num: 16
+test_way: 5 # use ~ -> test_* = *_num
+test_shot: 1
+test_query: 16
+episode_size: 1
+train_episode: 500
+test_episode: 500
+epoch: 120
+lr_scheduler:
+  name: StepLR
+  kwargs:
+    gamma: 0.5
+    step_size: 123456789 #does not use lr_scheduler
+backbone:
+  name: Conv64F
+  kwargs:
+    is_flatten: True
+    is_feature: False
+    leaky_relu: False
+    negative_slope: 0.2
+    last_pool: True
+
+# backbone:
+#   name: resnet12
+#   kwargs:
+#     keep_prob: 0.0
+
+# backbone:
+#   name: resnet18
+#   kwargs:
+
+# backbone:
+#   name: WRN
+#   kwargs:
+#     depth: 10
+#     widen_factor: 10
+#     dropRate: 0.0
+#     avg_pool: True
+#     is_flatten: True

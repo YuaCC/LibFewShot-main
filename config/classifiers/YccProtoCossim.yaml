@@ -1,0 +1,4 @@
+classifier:
+  name: YccProtoNet
+  kwargs:
+    dist: "cos_sim"

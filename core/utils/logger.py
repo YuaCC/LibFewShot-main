@@ -4,12 +4,12 @@ import os
 from logging import config
 from core.utils.utils import get_local_time
 
-try:
-    USE_RICH_CONSOLE = True
-    import rich
-except ImportError:
-    USE_RICH_CONSOLE = False
-
+# try:
+#     USE_RICH_CONSOLE = True
+#     import rich
+# except ImportError:
+#     USE_RICH_CONSOLE = False
+USE_RICH_CONSOLE = False#close rich console,because it doesn't work on my pc
 str_level_dict = {
     "notest": logging.NOTSET,
     "debug": logging.DEBUG,

@@ -18,6 +18,7 @@ VAR_DICT = {
 }
 
 if __name__ == "__main__":
-    config = Config(os.path.join(PATH, "config.yaml"), VAR_DICT).get_config_dict()
+    # config = Config(os.path.join(PATH, "config.yaml"), VAR_DICT).get_config_dict()
+    config = Config( VAR_DICT).get_config_dict()
     test = Test(config, PATH)
     test.test_loop()
