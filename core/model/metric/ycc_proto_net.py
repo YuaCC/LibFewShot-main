@@ -61,7 +61,7 @@ class ProtoLayer(nn.Module):
                 F.normalize(x, p=2, dim=-1),
                 torch.transpose(F.normalize(y, p=2, dim=-1), -1, -2)
                 # FEAT did not normalize the query_feat
-            ),
+            )*10,
         }[mode](query_feat, proto_feat)
 
 
