@@ -1,4 +1,0 @@
-classifier:
-  name: YccProtoNet
-  kwargs:
-    dist: "euclidean"

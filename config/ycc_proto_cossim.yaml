@@ -4,7 +4,7 @@ includes:
   - headers/misc.yaml
   - headers/model.yaml
   - headers/optimizer.yaml
-  - classifiers/YccProtoCossim.yaml
+  - classifiers/YccProto.yaml
   - backbones/resnet12.yaml
 
 
@@ -29,6 +29,11 @@ backbone:
     leaky_relu: False
     negative_slope: 0.2
     last_pool: True
+
+classifier:
+  name: YccProtoNet
+  kwargs:
+    dist: "cos_sim"
 
 # backbone:
 #   name: resnet12

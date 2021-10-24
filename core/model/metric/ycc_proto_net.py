@@ -83,7 +83,7 @@ class YccProtoNet(MetricModel):
         episode_size = image.size(0) // (self.way_num * (self.shot_num + self.query_num))
         feat = self.emb_func(image)
         if len(feat.shape) ==4:
-            feat = torch.mean(feat,dim=[2,3])
+            feat = nn.AdaptiveMaxPool2d(1)(feat)
         support_feat, query_feat, support_target, query_target = self.split_by_episode(feat, mode=1)
 
         output = self.proto_layer(
@@ -104,7 +104,7 @@ class YccProtoNet(MetricModel):
         episode_size = images.size(0) // (self.way_num * (self.shot_num + self.query_num))
         emb = self.emb_func(images)
         if len(emb.shape) ==4:
-            emb = torch.mean(emb,dim=[2,3])
+            emb = nn.AdaptiveMaxPool2d(1)(emb)
         support_feat, query_feat, support_target, query_target = self.split_by_episode(emb, mode=1)
 
         output = self.proto_layer(

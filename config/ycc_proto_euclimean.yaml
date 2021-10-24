@@ -4,7 +4,7 @@ includes:
   - headers/misc.yaml
   - headers/model.yaml
   - headers/optimizer.yaml
-  - classifiers/YccProtoEuclideanMean.yaml
+  - classifiers/YccProto.yaml
   - backbones/resnet12.yaml
 
 
@@ -30,6 +30,10 @@ backbone:
     negative_slope: 0.2
     last_pool: True
 
+classifier:
+  name: YccProtoNet
+  kwargs:
+    dist: "euclidean_mean"
 # backbone:
 #   name: resnet12
 #   kwargs:
