@@ -1,0 +1,3 @@
+proto eucli mean 5way1shot 63.042
+proto cossim 5way1shot 55.422
+proto eucli mean 5way1shot 54.396

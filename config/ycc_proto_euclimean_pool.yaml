@@ -4,7 +4,7 @@ includes:
   - headers/misc.yaml
   - headers/model.yaml
   - headers/optimizer.yaml
-  - classifiers/YccProtoCossim.yaml
+  - classifiers/YccProtoEuclideanMean.yaml
   - backbones/resnet12.yaml
 
 
@@ -24,7 +24,7 @@ lr_scheduler:
 backbone:
   name: Conv64F
   kwargs:
-    is_flatten: True
+    is_flatten: False
     is_feature: False
     leaky_relu: False
     negative_slope: 0.2

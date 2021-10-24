@@ -12,9 +12,6 @@ device_ids: 0
 way_num: 5
 shot_num: 1
 query_num: 16
-test_way: 5 # use ~ -> test_* = *_num
-test_shot: 1
-test_query: 16
 episode_size: 1
 train_episode: 500
 test_episode: 500
